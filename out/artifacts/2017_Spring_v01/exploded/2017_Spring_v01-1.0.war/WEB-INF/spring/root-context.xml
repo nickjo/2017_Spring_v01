@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://mybatis.org/schema/mybatis-spring http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <tx:annotation-driven/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${PostgreSQL.driverClassName}"></property>
+        <property name="url" value="${PostgreSQL.url}"></property>
+        <property name="username" value="${PostgreSQL.username}"></property>
+        <property name="password" value="${PostgreSQL.password}"></property>
+    </bean>
+
+    <context:property-placeholder location="classpath:config/jdbc.properties" />
+</beans>

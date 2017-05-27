@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springV01.mapper.Main001Mapper">
+
+    <!-- 메인 조회-->
+    <select id="main001R1" parameterType="map" resultType="map">
+        SELECT 'SOMETHING' AS TEST
+    </select>
+
+</mapper>

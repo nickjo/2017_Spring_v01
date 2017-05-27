@@ -1,0 +1,31 @@
+{
+  "name": "2017_Spring_v01",
+  "authors": [
+    "origin <nickjo180@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "angular": "^1.6.4"
+  },
+  "install": {
+    "path": {
+      "css": "static/css",
+      "js": "static/js"
+    }
+  },
+  "resolutions": {
+    "angular": "^1.6.4"
+  }
+}

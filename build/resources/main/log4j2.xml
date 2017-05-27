@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+log4j 2버전 설정파일
+
+log4j는 configurationFile, properties, yaml(yml), json(jsn), xml 확장자의 파일을 통해 설정이 가능하며 자동 탐색의 우선순위는 아래와 같습니다.
+
+1. 시스템 프로퍼티에서 log4j.configurationFile 항목이 설정되어 있는 경우 해당 설정 경로의 파일을 통해 설정
+2. 1.의 설정이 없는 경우 classpath에서 순서대로 log4j2-test.properties, log4j2-test.yaml(yml), log4j2-test.json(jsn), log4j2-test.xml 파일을 탐색
+3. 2.의 파일이 없는 경우 classpath에서 log4j2.properties, log4j2.yaml(yml), log4j2.json(jsn), log4j2.xml 파일을 탐색
+4. 3.의 파일이 없는 경우 기본 설정이 적용됩니다. 이 설정은 로그를 콘솔에 출력합니다.
+ -->
+<Configuration>
+
+    <!-- stdoutAppender uses Pattern to output the caller's file name and line number.
+        %m - 로그 메세지
+        %p - 로깅 레벨
+        %r - 실행 경과시간 (millisecond)
+        %c - 로거 이름
+        %t - 스레드 명
+        %x - NDC
+        %n - 개행 문자
+        %d - 날짜
+        %l - %C.%M(%F:%L)와 동일
+        %C - 완전한 클래스명
+        %M - 메소드명
+        %F - 파일명
+        %L - 라인 번호
+        %% - %
+    -->
+
+    <Appenders>
+        <!-- <RollingFile name="dailyLog" fileName="D:/logs/tams.log" filePattern="D:/logs/tams.log.%d{yyyy-MM-dd HH:mm:ss,SSS}"> -->
+        <RollingFile name="dailyLog" fileName="/springV01/WebContents/logs/tams.log" filePattern="/springV01/WebContents/logs/tams.log.%d{yyyy-MM-dd}" append="true">
+            <PatternLayout pattern="%5p %d{yyyy-MM-dd HH:mm:ss,SSS} (%c,%C{3}.%M[%L])-%m%n" />
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <!-- <PatternLayout pattern="%5p %d{yyyy-MM-dd HH:mm:ss,SSS} (%t-%c,%C{3}.%M[%L])-%m%n" /> -->
+            <PatternLayout pattern="%5p %d{yyyy-MM-dd HH:mm:ss,SSS} (%c,%C{3}.%M[%L])-%m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- DB Query log -->
+        <!-- mapper 직접 등록 방식(namespace를 특정 경로로 지정하면 설정 하나로 가능) -->
+        <!-- debug: sql + parameter, trace: 쿼리 결과 -->
+        <Logger name="mapper" level="debug" additivity="false">
+            <!-- <AppenderRef ref="console" /> -->
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <!-- java.sql 사용 -->
+        <!-- <Logger name="java.sql" level="TRACE" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger> -->
+
+        <!-- <Logger name="jdbc" level="TRACE" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger> -->
+        <!-- log SQL with timing information, post execution -->
+        <!-- <Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger> -->
+        <!-- DB Query log -->
+
+        <!-- <Logger name="com" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger> -->
+        <!-- <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger> -->
+
+        <Root level="INFO">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>
