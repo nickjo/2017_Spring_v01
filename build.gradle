@@ -61,6 +61,8 @@ dependencies {
 
     // tiles
     compile group: 'org.apache.tiles', name: 'tiles-api', version: '3.0.7'
+    compile group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.7'
+    compile group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.7'
 
     // aspectj
     compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.10'

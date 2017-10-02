@@ -35,4 +35,53 @@ public class Main001Controller {
 
         return "board/boardPage";
     }
+
+    @RequestMapping(value = "mv_restBoard.do")
+    public String mv_restBoard(){
+        log.info("####mv_restBoard.do controller");
+
+        return "board/restBoard001R1";
+    }
+
+    @RequestMapping(value = "mv_loginPage.do")
+    public String mv_loginPage(){
+        log.info("####mv_loginPage.do controller");
+
+        return "login/loginPage001R1";
+    }
+
+    @RequestMapping(value = "mv_aboutPage.do")
+    public String mv_aboutPage(){
+        log.info("###mv_aboutPage.do controller");
+
+        return "login/aboutPage001R1";
+    }
+
+    @RequestMapping(value = "mv_indexPage.do")
+    public String mv_indexPage(){
+        log.info("###mv_aboutPage.do controller");
+
+        return "main/indexPage";
+    }
+
+    @RequestMapping(value = "boardList.do")
+    public String boardList(Model model) throws Exception{
+        log.info("###boardList.do");
+
+        return "main/boardList";
+    }
+
+    @RequestMapping(value = "mainTiles.do")
+    public String mainTiles(Model model) throws Exception{
+        log.info("###mainTiles.do");
+
+        return "/tiles/mainTiles";
+    }
+
+    @RequestMapping(value = "mv_joinPage.do")
+    public String mv_joinPage(Model model) throws Exception{
+        log.info("###mv_joinPage.do");
+
+        return "/tiles/joinTiles";
+    }
 }

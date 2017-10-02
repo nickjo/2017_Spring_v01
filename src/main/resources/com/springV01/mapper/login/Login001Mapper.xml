@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springV01.mapper.Login001Mapper">
+
+    <!-- new member info insert -->
+    <insert id="login001C1" parameterType="map">
+      INSERT INTO TB_USERINFO
+          ( USERCODE
+          , USERNAME
+          , EMAIL
+          , PASSWORD
+          , REGDATE
+          , MODDATE
+          , LEVEL
+          , TELEPHON
+          )
+      VALUES
+          ( cast(to_char(now(),'yymmddHH24mmss') as numeric(17,2))
+          , #{userName}
+          , #{userEmail}
+          , #{userPw}
+          , current_date
+          , current_date
+          , 1
+          , 01084070757
+          )
+    </insert>
+</mapper>
